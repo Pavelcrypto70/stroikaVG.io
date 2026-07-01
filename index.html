@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes, maximum-scale=1.0" />
+  <title>Контроль и экспертиза стройки от проекта до фундамента</title>
+  <meta name="description" content="Аудит проектных решений, техническая консультация и технадзор в ИЖС. Независимая экспертиза вашего дома." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="container header-flex">
+    <div class="logo">Academia<span>Stroy</span></div>
+    <nav class="nav">
+      <a href="#services" class="nav-link">Услуги</a>
+      <a href="#audit" class="nav-link">Аудит</a>
+      <a href="#consult" class="nav-link">Консультация</a>
+      <a href="#nadzor" class="nav-link">Технадзор</a>
+      <a href="#checklist" class="nav-link">Чек-лист</a>
+      <a href="#contacts" class="nav-link">Контакты</a>
+    </nav>
+    <div class="header-contacts">
+      <button class="btn btn-outline callback-open" data-service="Консультация">Оставить заявку</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-shield-alt"></i> Независимая экспертиза</div>
+        <div class="mobile-mini-icons mobile-only">
+          <span><i class="fas fa-ruler-combined"></i></span>
+          <span><i class="fas fa-house-user"></i></span>
+          <span><i class="fas fa-clipboard-check"></i></span>
+        </div>
+        <h1 class="hero-title">Контроль и экспертиза стройки от проекта до фундамента</h1>
+        <p class="hero-sub">Аудит проектных решений, техническая консультация, технадзор в ИЖС — независимая экспертиза вашего дома.</p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary callback-open" data-service="Аудит проекта"><i class="fas fa-file-signature"></i> Получить аудит</button>
+          <a href="#services" class="btn btn-outline"><i class="fas fa-arrow-down"></i> Смотреть услуги</a>
+        </div>
+        <div class="trust-badge">
+          <span><i class="fas fa-file-signature"></i> Прозрачная смета</span>
+          <span><i class="fas fa-chart-line"></i> Экономия 10–30%</span>
+        </div>
+      </div>
+      <div class="hero-image"></div>
+    </div>
+  </section>
+
+  <section class="container" id="about">
+    <div class="about-company">
+      <div class="about-grid">
+        <div class="about-left">
+          <div class="about-badge"><i class="fas fa-building"></i> О компании</div>
+          <h2>Более 15 лет экспертизы в строительстве</h2>
+          <p class="about-text">
+            <strong>AcademiaStroy</strong> — команда инженеров и проектировщиков с профильным образованием и высокой квалификацией. Мы работаем на рынке индивидуального жилищного строительства, обеспечивая полный цикл контроля: от проектирования до технического надзора.
+          </p>
+          <div class="about-stats">
+            <span class="stat-item"><i class="fas fa-home"></i> 400+ проектов</span>
+            <span class="stat-item"><i class="fas fa-globe-americas"></i> Европа, СНГ</span>
+            <span class="stat-item"><i class="fas fa-clipboard-check"></i> Госэкспертиза</span>
+          </div>
+          <div class="about-cta">
+            <button class="btn btn-primary callback-open" data-service="Консультация"><i class="fas fa-phone-alt"></i> Обсудить проект</button>
+            <button class="btn btn-outline callback-open" data-service="Аудит проекта"><i class="fas fa-file-signature"></i> Заказать аудит</button>
+          </div>
+        </div>
+        <div class="about-right">
+          <div class="about-feature">
+            <i class="fas fa-drafting-compass"></i>
+            <h4>Проектирование</h4>
+            <p>Сотни частных домов, многоквартирные объекты, опыт в Европе и СНГ.</p>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-hard-hat"></i>
+            <h4>Строительный контроль</h4>
+            <p>На объектах ИЖС и МКД — от фундамента до кровли.</p>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-search-plus"></i>
+            <h4>Аудит проектов</h4>
+            <p>Внушительное портфолио, выявление ошибок и оптимизация бюджета.</p>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-certificate"></i>
+            <h4>Экспертиза</h4>
+            <p>Прохождение государственных экспертиз, полное соответствие нормам.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="services">
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
+        <h3 class="service-title">Аудит проектных решений</h3>
+        <div class="service-price">40 000 ₽</div>
+        <p class="service-desc">Проверим проект до стройки, найдём скрытые ошибки и перерасход.</p>
+        <button class="btn btn-primary callback-open" data-service="Аудит проекта">Выбрать</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-headset"></i></div>
+        <h3 class="service-title">Техническая консультация</h3>
+        <div class="service-price">3 000 ₽</div>
+        <p class="service-desc">Быстрое второе мнение инженера. Видеосвязь, телефон или выезд.</p>
+        <button class="btn btn-primary callback-open" data-service="Консультация">Выбрать</button>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+        <h3 class="service-title">Технадзор в ИЖС</h3>
+        <div class="service-price">15 000 ₽</div>
+        <p class="service-desc">Ваш представитель на объекте. Удалённый или с выездом.</p>
+        <button class="btn btn-primary callback-open" data-service="Технадзор">Выбрать</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container content-section" id="audit">
+    <div class="feature-card">
+      <div class="feature-top">
+        <div class="feature-icon"><i class="fas fa-drafting-compass"></i></div>
+        <div class="feature-meta">
+          <h3>Аудит проектных решений</h3>
+          <div class="feature-price">40 000 ₽</div>
+        </div>
+      </div>
+      <p class="feature-lead">Проверяем проект до начала стройки, чтобы убрать ошибки, сократить лишние расходы и сделать решения понятнее для реализации.</p>
+      <ul class="feature-list">
+        <li><i class="fas fa-check-circle"></i><span><strong>Комплектность</strong> — хватает ли данных для стройки без догадок.</span></li>
+        <li><i class="fas fa-check-circle"></i><span><strong>Рациональность</strong> — ищем упрощения в сложных узлах и решениях.</span></li>
+        <li><i class="fas fa-check-circle"></i><span><strong>Надежность</strong> — исключаем спорные конструктивные ошибки.</span></li>
+        <li><i class="fas fa-check-circle"></i><span><strong>Экономичность</strong> — подсвечиваем перерасход материалов и бюджета.</span></li>
+      </ul>
+      <div class="feature-box">
+        <strong>Как это проходит</strong>
+        <p>Вы присылаете проект и исходные данные, мы проводим анализ, после чего выдаём понятное заключение с замечаниями и рекомендациями.</p>
+      </div>
+      <div class="feature-actions">
+        <button class="btn btn-primary callback-open" data-service="Аудит проекта">Заказать аудит</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container content-section" id="consult">
+    <div class="feature-card">
+      <div class="feature-top">
+        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+        <div class="feature-meta">
+          <h3>Техническая консультация</h3>
+          <div class="feature-price">от 3 000 ₽</div>
+        </div>
+      </div>
+      <p class="feature-lead">Быстро разбираем вопросы по проекту, узлам и этапам работ. Это удобный формат, когда нужен ясный ответ от инженера без долгой переписки.</p>
+      <ul class="feature-list">
+        <li><i class="fas fa-video"></i><span><strong>Онлайн</strong> — видеосвязь и разбор в удобное время.</span></li>
+        <li><i class="fas fa-phone-alt"></i><span><strong>Телефон</strong> — быстрый формат для срочных вопросов.</span></li>
+        <li><i class="fas fa-hard-hat"></i><span><strong>Выезд</strong> — очная консультация на объекте.</span></li>
+        <li><i class="fas fa-file-alt"></i><span><strong>Итог</strong> — рекомендации по дальнейшим шагам и решениям.</span></li>
+      </ul>
+      <div class="feature-box">
+        <strong>Что подготовить</strong>
+        <p>Чертежи, фото текущего этапа и список вопросов. Так консультация проходит быстрее и даёт больше пользы.</p>
+      </div>
+      <div class="feature-actions">
+        <button class="btn btn-primary callback-open" data-service="Консультация">Записаться</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container content-section" id="nadzor">
+    <div class="feature-card">
+      <div class="feature-top">
+        <div class="feature-icon"><i class="fas fa-hard-hat"></i></div>
+        <div class="feature-meta">
+          <h3>Технадзор в ИЖС</h3>
+          <div class="feature-price">от 15 000 ₽</div>
+        </div>
+      </div>
+      <p class="feature-lead">Контролируем качество работ, соответствие проекту и скрытые этапы строительства. Подходит и для удалённого сопровождения, и для выездной проверки.</p>
+      <ul class="feature-list">
+        <li><i class="fas fa-check-circle"></i><span><strong>Удалённый формат</strong> — контроль по фото- и видеоотчётам.</span></li>
+        <li><i class="fas fa-check-circle"></i><span><strong>Выездной формат</strong> — осмотр на объекте с фиксацией замечаний.</span></li>
+        <li><i class="fas fa-check-circle"></i><span><strong>Скрытые этапы</strong> — армирование, гидроизоляция, узлы соединений.</span></li>
+        <li><i class="fas fa-check-circle"></i><span><strong>Фотоотчёт</strong> — понятная фиксация каждого визита и результата.</span></li>
+      </ul>
+      <div class="feature-box">
+        <strong>Что контролируем</strong>
+        <p>Проектные решения, материалы, качество выполнения и критичные узлы, где чаще всего возникают ошибки подрядчика.</p>
+      </div>
+      <div class="feature-actions">
+        <button class="btn btn-primary callback-open" data-service="Технадзор">Заказать технадзор</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="services-header">
+    <h2 class="section-title">Подробнее об услугах</h2>
+  </section>
+
+  <section class="container" id="checklist">
+    <div class="magnet">
+      <h2 class="section-title" style="color:#fff;">Как проконтролировать стройку самостоятельно?</h2>
+      <p class="magnet-lead">Чек-лист «Дом без сюрпризов» по этапам: фундамент, кладка, сети, кровля, остекление.</p>
+      <form id="checklist-form" class="form-group">
+        <input type="text" placeholder="Ваше имя" id="cl-name" required>
+        <input type="email" placeholder="E-mail" id="cl-email" required>
+        <input type="tel" placeholder="Телефон" id="cl-phone" required>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-download"></i> Получить PDF</button>
+      </form>
+      <p class="magnet-footnote">PDF придет на указанный email</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="advantages-grid">
+      <div class="advantage-item">
+        <i class="fas fa-chart-line"></i>
+        <h3>Экономия 10–30%</h3>
+        <p>После аудита проекта вы оптимизируете бюджет</p>
+      </div>
+      <div class="advantage-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Работаем по всей РФ</h3>
+        <p>Удалённый технадзор и консультации онлайн</p>
+      </div>
+      <div class="advantage-item">
+        <i class="fas fa-file-contract"></i>
+        <h3>Фиксированная смета</h3>
+        <p>Прозрачные цены без скрытых доплат</p>
+      </div>
+      <div class="advantage-item">
+        <i class="fas fa-microphone-alt"></i>
+        <h3>Независимый взгляд</h3>
+        <p>Мы не привязаны к подрядчикам и материалам</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="contacts">
+    <div class="two-columns">
+      <div class="contact-form-wrap">
+        <h2 class="section-title">Остались вопросы?</h2>
+        <p>Оставьте заявку, и мы проконсультируем вас бесплатно по всем услугам.</p>
+        <form id="main-form">
+          <input type="text" placeholder="Ваше имя" id="form-name" class="text-input">
+          <input type="tel" placeholder="Телефон" id="form-phone" class="text-input">
+          <select id="form-service" class="text-input">
+            <option>Аудит проекта</option>
+            <option>Консультация</option>
+            <option>Технадзор</option>
+            <option>Чек-лист</option>
+          </select>
+          <button type="submit" class="btn btn-primary submit-wide">Отправить</button>
+        </form>
+      </div>
+
+      <div class="contacts-box">
+        <i class="fas fa-map-marked-alt contacts-icon"></i>
+        <span class="contacts-city">Москва и РФ</span>
+        <div class="contacts-info">
+          <p><i class="fas fa-phone-alt"></i> +7 (495) 123-45-67</p>
+          <p><i class="fab fa-telegram"></i> @academia_stroy</p>
+          <p><i class="fas fa-envelope"></i> info@academystroy.ru</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-flex">
+    <div>2025</div>
+    <div><a href="#" class="footer-link">Политика конфиденциальности</a></div>
+    <div class="footer-socials">
+      <i class="fab fa-telegram"></i>
+      <i class="fab fa-whatsapp"></i>
+      <i class="fab fa-vk"></i>
+    </div>
+  </div>
+</footer>
+
+<div id="callbackModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h3 class="modal-title">Оставить заявку</h3>
+    <form class="callback-form" id="modal-form">
+      <input type="text" placeholder="Ваше имя" id="modal-name" required>
+      <input type="tel" placeholder="Телефон" id="modal-phone" required>
+      <select id="modal-service">
+        <option>Аудит проекта</option>
+        <option>Консультация</option>
+        <option>Технадзор</option>
+        <option>Чек-лист</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
