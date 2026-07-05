@@ -1,0 +1,5 @@
+name = "academiastroy-forms"
+main = "worker/index.js"
+compatibility_date = "2024-08-01"
+
+workers_dev = true

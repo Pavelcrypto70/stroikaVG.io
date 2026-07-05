@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": "Premium",
+  "functions": {
+    "api/send.js": {
+      "maxDuration": 10
+    }
+  }
+}

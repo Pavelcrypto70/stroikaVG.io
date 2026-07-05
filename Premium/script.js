@@ -1,18 +1,17 @@
-const TELEGRAM = {
-  BOT_TOKEN: '',
-  CHAT_ID: ''
-};
-
+/**
+ * URL прокси (Google Apps Script). После развертывания telegram-proxy.gs:
+ * const FORM_API = 'https://script.google.com/macros/s/ВАШ_ID/exec';
+ */
+const FORM_API = 'https://script.google.com/macros/s/AKfycby2fivlmf6OG5MR9VHW-Etbl49e9XwQEAMshjR5k2mvUsCQz9owosTOuPrSShhonEaL3w/exec';
 document.addEventListener('DOMContentLoaded', function () {
   const header = document.getElementById('siteHeader');
   const modal = document.getElementById('callbackModal');
   const modalBackdrop = modal?.querySelector('.modal-backdrop');
-  const closeBtn = modal?.querySelector('.modal-close');
+  const closeBtn = modal?.querySelector('.close-modal');
   const serviceSelect = document.getElementById('modal-service');
   const openBtns = document.querySelectorAll('.callback-open');
   let scrollTopBeforeModal = 0;
 
-  /* Header scroll effect */
   function onScroll() {
     if (header) {
       header.classList.toggle('scrolled', window.scrollY > 40);
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* Reveal on scroll */
   const revealEls = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -31,10 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
   revealEls.forEach(function (el) { revealObserver.observe(el); });
 
-  /* Counter animation */
   document.querySelectorAll('[data-count]').forEach(function (el) {
     const counterObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -57,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     counterObserver.observe(el);
   });
 
-  /* Modal */
   function openModal() {
     if (!modal) return;
     scrollTopBeforeModal = window.pageYOffset;
@@ -93,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') closeModal();
   });
 
-  /* Active nav link */
   const sections = document.querySelectorAll('section[id], article[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
@@ -109,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   window.addEventListener('scroll', highlightNav, { passive: true });
 
-  /* Smooth scroll */
   navLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
       const id = link.getAttribute('href').slice(1);
@@ -122,28 +115,51 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* Telegram forms */
-  function isTelegramConfigured() {
-    return Boolean(TELEGRAM.BOT_TOKEN && TELEGRAM.CHAT_ID);
-  }
-
-  async function sendToTelegram(data) {
-    const url = 'https://api.telegram.org/bot' + TELEGRAM.BOT_TOKEN + '/sendMessage';
-    const text = [
-      '📋 Новая заявка — AcademiaStroy Premium',
+  function buildMessage(data) {
+    return [
+      '📋 Новая заявка — AcademiaStroy',
       '',
       'Имя: ' + (data.name || '—'),
       'Телефон: ' + (data.phone || '—'),
       'Услуга: ' + (data.service || '—'),
       data.source ? 'Форма: ' + data.source : ''
     ].filter(Boolean).join('\n');
+  }
 
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: TELEGRAM.CHAT_ID, text: text })
+  function sendLeadViaGet(data) {
+    const params = new URLSearchParams();
+    Object.keys(data).forEach(function (key) {
+      params.set(key, data[key] || '');
     });
-    if (!res.ok) throw new Error('Telegram error');
+
+    return new Promise(function (resolve, reject) {
+      let iframe = document.getElementById('form-proxy-frame');
+      if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.id = 'form-proxy-frame';
+        iframe.name = 'form-proxy-frame';
+        iframe.title = 'form-proxy';
+        iframe.style.cssText = 'position:absolute;width:0;height:0;border:0;visibility:hidden';
+        document.body.appendChild(iframe);
+      }
+
+      iframe.onload = function () {
+        window.setTimeout(resolve, 300);
+      };
+      iframe.onerror = function () {
+        reject(new Error('Send error'));
+      };
+
+      iframe.src = FORM_API + '?' + params.toString();
+      window.setTimeout(resolve, 2500);
+    });
+  }
+
+  async function sendLead(data) {
+    if (!FORM_API) {
+      throw new Error('FORM_API not configured');
+    }
+    await sendLeadViaGet(data);
   }
 
   function setLoading(form, loading) {
@@ -161,13 +177,24 @@ document.addEventListener('DOMContentLoaded', function () {
   async function submitLead(form, payload, msg) {
     setLoading(form, true);
     try {
-      if (isTelegramConfigured()) await sendToTelegram(payload);
+      if (!FORM_API) {
+        alert(
+          'Форма не подключена к Telegram.\n\n' +
+          '1. Откройте script.google.com → Новый проект\n' +
+          '2. Вставьте код из Premium/telegram-proxy.gs\n' +
+          '3. Развернуть → Веб-приложение → Доступ: Все\n' +
+          '4. Скопируйте URL в FORM_API в script.js\n\n' +
+          'Без прокси из РФ Telegram API недоступен.'
+        );
+        return;
+      }
+      await sendLead(payload);
       alert(msg);
       form.reset();
       closeModal();
     } catch (err) {
       console.error(err);
-      alert('Не удалось отправить. Попробуйте позже.');
+      alert('Не удалось отправить: ' + (err.message || 'ошибка сети'));
     } finally {
       setLoading(form, false);
     }

@@ -1311,7 +1311,7 @@ button, input, select { font: inherit; }
 
   .header-actions { display: none; }
 
-  .hero { padding-top: calc(var(--header-h) + 24px); }
+  .hero { padding-top: calc(var(--header-h) + 36px); }
   .hero-layout {
     grid-template-columns: 1fr;
     gap: 24px;
